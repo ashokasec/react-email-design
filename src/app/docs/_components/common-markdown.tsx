@@ -1,9 +1,10 @@
+import { cn } from "@/lib/utils";
 import Markdown from "markdown-to-jsx";
 import React from "react";
 
-export function Heading1({ children }: { children: string }) {
+export function Heading1({ children, className }: { children: string, className?: string }) {
   return (
-    <h1 className="text-2xl font-semibold text-gray-800">
+    <h1 className={cn("text-2xl font-semibold text-gray-800", className)}>
       {children}
     </h1>
   );
@@ -16,8 +17,8 @@ export function Heading2({ children }: { children: string }) {
   );
 }
 
-export function Paragraph({ children }: { children: React.ReactNode }) {
-  return <p className="mt-3 text-[16px] leading-[1.75]">{children}</p>;
+export function Paragraph({ children, className }: { children: React.ReactNode, className?: string }) {
+  return <p className={cn("mt-3 text-[16px] leading-[1.75]", className)}>{children}</p>;
 }
 
 const CommonMarkdown = ({ children }: { children: string }) => {

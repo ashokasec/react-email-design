@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { geistSans } from "@/lib/fonts";
 import { Navbar } from "@/components/app/navbar";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: `React Email Templates`,
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} antialiased`}>
         <Navbar />
         {children}
+        <Toaster />
       </body>
     </html>
   );

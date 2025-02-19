@@ -5,7 +5,7 @@ import DocPage from "../_components/doc-page";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import {
-  COMPANY_DIR,
+  DOCS_COMPANY_DIR,
   getCompanyDetails,
   getEmailTeamplateContent,
 } from "@/content/util";
@@ -66,7 +66,7 @@ export async function generateMetadata({
     };
   } else if (slug.length === 2) {
     const doc = getEmailTeamplateContent(
-      COMPANY_DIR,
+      DOCS_COMPANY_DIR,
       `${slug[0]}---${slug[1]}`
     );
 
@@ -102,13 +102,16 @@ const page = async ({ params }: DocPageProps) => {
     return <CompanyPage companyId={slug[0]} />;
   } else if (slug.length === 2) {
     const doc = getEmailTeamplateContent(
-      COMPANY_DIR,
+      DOCS_COMPANY_DIR,
       `${slug[0]}---${slug[1]}`
     );
     const company = getCompanyDetails(slug[0]);
     return (
       <DocPage
-        content={doc.content ? doc.content : ""}
+        reactCode={doc.reactCode ? doc.reactCode : ""}
+        title={doc.metadata.title}
+        category={doc.metadata.category}
+        description={doc.metadata.description}
         breadcrumb={["Docs", "Company", company?.name, doc.metadata.title]}
       />
     );

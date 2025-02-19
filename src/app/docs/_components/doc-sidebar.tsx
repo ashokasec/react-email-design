@@ -15,18 +15,16 @@ const DocSidebar = ({
 }) => {
   return (
     <aside className="fixed top-16 z-30 hidden h-[calc(100vh-4rem)] w-full shrink-0 md:sticky md:block">
-      <ScrollArea className="h-[calc(100vh-6rem)] border-r w-full relative">
+      <ScrollArea className="h-[calc(100vh-4rem)] border-r w-full relative">
         <div className="space-y-8 px-4 py-6">
           <SidebarGroup>
             <SidebarGroupTitle>Getting Started</SidebarGroupTitle>
             <ul>
-              {[{ name: "Introduction", href: "/docs" }].map(
-                (item, index) => (
-                  <SidebarListItem href={item.href} key={index}>
-                    {item.name}
-                  </SidebarListItem>
-                )
-              )}
+              {[{ name: "Introduction", href: "/docs" }].map((item, index) => (
+                <SidebarListItem href={item.href} key={index}>
+                  {item.name}
+                </SidebarListItem>
+              ))}
             </ul>
           </SidebarGroup>
           <SidebarGroup>
