@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { APP } from "@/lib/config";
 import { geistSans } from "@/lib/fonts";
+import Link from "next/link";
 
 export function Navbar() {
   return (
@@ -9,22 +9,22 @@ export function Navbar() {
         <div className="flex space-x-10">
           <div
             style={geistSans.style}
-            className="text-[15px] font-semibold leading-none pt-[2px]"
+            className="text-[15px] font-semibold leading-none pt-[2px] text-blue-600"
           >
+            <Link href="/">
             {APP.name}{" "}
+            </Link>
             <span className="bg-blue-100 rounded-md text-xs leading-none px-1.5 py-0.5 ml-1 text-blue-600">
               Beta
             </span>
           </div>
           <nav>
             <ul className="flex items-center text-sm space-x-3 font-medium text-gray-">
-              <li>Components</li>
+              {/* <li>Components</li> */}
             </ul>
           </nav>
         </div>
-        <div>
-          <Button>Github</Button>
-        </div>
+        <div>{/* <Button>Twitter</Button> */}</div>
       </header>
     </div>
   );

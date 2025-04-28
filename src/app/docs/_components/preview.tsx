@@ -56,7 +56,7 @@ function CodeBlock({
   code: string;
 }) {
   return (
-    <SyntaxHighlighter language={language} style={CodeTheme}>
+    <SyntaxHighlighter wrapLines language={language} style={CodeTheme}>
       {code}
     </SyntaxHighlighter>
   );
