@@ -92,7 +92,7 @@ function CustomTabContent({
     <TabsContent
       value={value}
       className={cn(
-        "rounded border overflow-clip mt-3 overflow-y-auto aspect-[16/10] no-scrollbar html-code mb-6]",
+        "rounded border overflow-clip mt-3 overflow-y-auto no-scrollbar html-code mb-6]",
         className
       )}
     >

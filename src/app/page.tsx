@@ -2,6 +2,7 @@ import { Footer } from "@/components/app/footer";
 import { Button } from "@/components/ui/button";
 import { geistSans } from "@/lib/fonts";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const page = () => {
@@ -21,12 +22,16 @@ const page = () => {
             className="max-w-2xl mx-auto text-center text-[17px] text-neutral-700 mt-6 landing-description"
             style={geistSans.style}
           >
-            50+ handcrafted email templates built with <strong>React.email</strong>, <strong>Tailwind CSS</strong>, and <strong>Typescript</strong> — perfect for developers shipping onboarding,
-            transactional, and marketing emails fast.
+            50+ handcrafted email templates built with{" "}
+            <strong>React.email</strong>, <strong>Tailwind CSS</strong>, and{" "}
+            <strong>Typescript</strong> — perfect for developers shipping
+            onboarding, transactional, and marketing emails fast.
           </p>
           <div className="space-x-2 mx-auto w-fit mt-10">
-            <Button size="lg" className="text-[15px] py-3 h-fit">
-              Browse Components <ChevronRight className="size-4" />
+            <Button size="lg" className="text-[15px] py-3 h-fit" asChild>
+              <Link href="/docs/components">
+                Browse Components <ChevronRight className="size-4" />
+              </Link>
             </Button>
             <Button
               size="lg"

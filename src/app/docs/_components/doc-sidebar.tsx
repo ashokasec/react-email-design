@@ -6,13 +6,10 @@ import {
 } from "@/components/app/sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Link from "next/link";
-import { ArrowRight, Dot } from "lucide-react";
+import { getAllComponents } from "@/content/components/util";
 
-const DocSidebar = ({
-  companies,
-}: {
-  companies: { id: string; name: string; url: string; count: number }[];
-}) => {
+const DocSidebar = () => {
+  const components = getAllComponents();
   return (
     <aside className="fixed top-16 z-30 hidden h-[calc(100vh-4rem)] w-full shrink-0 md:sticky md:block">
       <ScrollArea className="h-[calc(100vh-7rem)] border-r w-full relative">
@@ -28,58 +25,31 @@ const DocSidebar = ({
             </ul>
           </SidebarGroup>
           <SidebarGroup>
-            <SidebarGroupTitle>Company</SidebarGroupTitle>
+            <SidebarGroupTitle>Components</SidebarGroupTitle>
             <ul>
-              {companies.map((item, index) => (
+              {components.map(({ title, slug }, index) => (
                 <SidebarListItem
-                  href={`/docs/company/${item.id}`}
+                  href={`/docs/components/${slug}`}
                   key={index}
                   className="justify-between"
                 >
-                  <span>{item.name}</span>
-                  <span className="text-[12px] text-blue-600">
-                    {item.count}
-                  </span>
+                  <span>{title}</span>
                 </SidebarListItem>
               ))}
             </ul>
-            <Dot />
-            <Link
-              href="/docs/company"
-              className="text-[13px] ml-2.5 font-medium flex items-center hover:underline underline-offset-2 mt-1 w-fit"
-            >
-              See All Companies
-              <ArrowRight className="h-3.5" />
-            </Link>
-          </SidebarGroup>
-          <SidebarGroup>
-            <SidebarGroupTitle>Category</SidebarGroupTitle>
-            {/* <ul>
-              {TemplateCategory.map((item, index) => (
-                <SidebarListItem
-                  href={item.href}
-                  key={index}
-                  className="justify-between"
-                >
-                  <span>{item.name}</span>
-                  <span className="text-[12px] text-blue-600">
-                    {item.count}
-                  </span>
-                </SidebarListItem>
-              ))}
-              <Dot />
-              <Link
-                href="#"
-                className="text-[13px] ml-2.5 font-medium flex items-center hover:underline underline-offset-2 mt-1 w-fit"
-              >
-                See All Categories
-                <ArrowRight className="h-3.5" />
-              </Link>
-            </ul> */}
           </SidebarGroup>
         </div>
       </ScrollArea>
-      <div className="h-12 border-t border-r flex items-center px-4 text-sm text-neutral-500">Brought To You by&nbsp;<Link href="https://x.com/ashokasec" target="_blank" className="underline text-blue-600">@ashokasec</Link></div>
+      <div className="h-12 border-t border-r flex items-center px-4 text-sm text-neutral-500">
+        Brought To You by&nbsp;
+        <Link
+          href="https://x.com/ashokasec"
+          target="_blank"
+          className="underline text-blue-600"
+        >
+          @ashokasec
+        </Link>
+      </div>
     </aside>
   );
 };

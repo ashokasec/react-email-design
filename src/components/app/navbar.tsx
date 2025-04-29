@@ -22,7 +22,12 @@ export function Navbar() {
               className="flex items-center text-sm space-x-3 font-medium text-neutral-500"
               style={geistSans.style}
             >
-              <li>Components</li>
+              <li>
+                <Link href="/docs">Docs</Link>
+              </li>
+              <li>
+                <Link href="/docs/components">Components</Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -39,9 +44,7 @@ export function Navbar() {
                 ></path>
               </svg>
             </div>
-            <span className="pl-1 pr-2.5">
-            293 Stars on Github
-            </span>
+            <span className="pl-1 pr-2.5">293 Stars on Github</span>
           </Button>
         </div>
       </header>

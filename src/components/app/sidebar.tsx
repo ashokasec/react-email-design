@@ -8,7 +8,7 @@ export const SidebarGroup = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const SidebarGroupTitle = ({ children }: { children: string }) => {
-  return <h6 className="text-sm mb-2 font-semibold px-2" style={inter.style}>{children}</h6>;
+  return <h6 className="text-sm mb-2 font-semibold px-2 text-neutral-800 underline underline-offset-2 decoration-neutral-200" style={inter.style}>{children}</h6>;
 };
 
 export const SidebarListItem = ({

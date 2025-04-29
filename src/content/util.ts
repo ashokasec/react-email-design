@@ -1,10 +1,73 @@
-import { existsSync, readdirSync, readFileSync } from 'fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import COMPANIES_DATA from "./data/companies"
 
+const CONTENT_DIR = path.join(process.cwd(), 'src', 'content')
+
 export const DOCS_COMPANY_DIR = path.join(process.cwd(), 'src', 'content', 'docs', 'company');
 export const TEMPLATE_COMPANY_DIR = path.join(process.cwd(), 'src', 'content', 'templates', 'company');
+
+export const COMPONENTS_DIR = path.join(CONTENT_DIR, "components")
+
+export function getAllDirectories({ dir }: { dir: string }) {
+    const directories = readdirSync(dir).filter(name => {
+        const fullPath = path.join(dir, name);
+        return statSync(fullPath).isDirectory();
+    });
+    return directories
+}
+
+export function getAllFiles({ dir }: { dir: string }) {
+    const files = readdirSync(dir).filter(name => {
+        const filePath = path.join(dir, name);
+        return statSync(filePath).isFile();
+    });
+    return files
+}
+
+
+
+export function getFileContent({ dir, filename }: { dir: string; filename: string; }) {
+    const filePath = path.join(dir, filename);
+    const content = readFileSync(filePath, 'utf-8');
+    return content
+};
+
+// return fileNames
+//     .filter((file) => file.endsWith('.mdx'))
+//     .map((file) => {
+//         const slug = file.replace('.mdx', '');
+//         const filePath = path.join(folder, file);
+//         const content = readFileSync(filePath, 'utf-8');
+//         const { data } = matter(content);
+
+//         return {
+//             title: data.title,
+//             description: data.description,  // Get the description
+//             slug,
+//         };
+//     });
+// }
+
+export function getMarkdownFileContent({ dir, filename }: { dir: string; filename: string }) {
+    const filePath = path.join(dir, `${filename}.mdx`);
+
+    if (!existsSync(filePath)) {
+        return {
+            title: null,
+            error: 'File not found'
+        }
+    };
+
+    const content = readFileSync(filePath, 'utf-8');
+    const { data } = matter(content);
+
+    return {
+        title: data.title
+    }
+}
+
 
 export const getAllDocuments = ({ folder }: { folder: string }) => {
     const fileNames = readdirSync(folder)
