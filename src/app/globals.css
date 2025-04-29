@@ -62,6 +62,13 @@ body {
   }
 }
 
+.animate-gradient {
+  background-size: 300%;
+  -webkit-animation: animatedgradient 6s ease infinite alternate;
+  -moz-animation: animatedgradient 6s ease infinite alternate;
+  animation: animatedgradient 6s ease infinite alternate;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -69,6 +76,10 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.landing-description strong {
+  font-weight: 600;
 }
 
 .html-code pre{
