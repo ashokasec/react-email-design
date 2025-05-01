@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { geistSans } from "@/lib/fonts";
-import { Navbar } from "@/components/app/navbar";
 import { Toaster } from "@/components/ui/sonner";
+import { Navbar } from "@/components/site-navbar";
 
 export const metadata: Metadata = {
   title: "React Email Templates | Beautiful, Responsive & Production-Ready",

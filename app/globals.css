@@ -76,15 +76,16 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  .html-code pre{
+    @apply !m-0 text-[14.5px]
+  }
+  .html-code code{
+    @apply !bg-transparent
+  }
 }
 
 .landing-description strong {
   font-weight: 600;
-}
-
-.html-code pre{
-  margin: 0px !important;
-  font-size: 15px;
 }
 
 .no-scrollbar {

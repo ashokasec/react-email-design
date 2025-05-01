@@ -3,10 +3,10 @@ import {
   SidebarGroup,
   SidebarGroupTitle,
   SidebarListItem,
-} from "@/components/app/sidebar";
+} from "@/components/ui/mod-sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Link from "next/link";
-import { getAllComponents } from "@/content/components/util";
+import { getAllComponents } from "@/content/util";
 
 const DocSidebar = () => {
   const components = getAllComponents();

@@ -1,7 +1,3 @@
-// Two Button
-
-// ---
-
 import { Button } from "@react-email/components";
 
 const Email = () => {

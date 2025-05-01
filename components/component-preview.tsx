@@ -1,7 +1,5 @@
 "use client";
 
-import SampleEmail from "@/content/templates/company/spaceship---security-alert";
-import { render } from "@react-email/render";
 import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -10,10 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Copy, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-
-const html = await render(<SampleEmail />, {
-  pretty: true,
-});
 
 function CopyCodeButton({
   code,
@@ -32,7 +26,7 @@ function CopyCodeButton({
       toast.success(successfulToastMessage);
       setTimeout(() => setCopied(false), 2000);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.error("Failed to copy!");
     }
   };
@@ -72,7 +66,7 @@ function CustomTrigger({
   return (
     <TabsTrigger
       value={value}
-      className="!shadow-none rounded-none pt-2 pb-3 px-0 border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:text-blue-600"
+      className="!shadow-none data-[state=active]:bg-blue-100 data-[state=active]:text-blue-600"
     >
       {text}
     </TabsTrigger>
@@ -92,7 +86,7 @@ function CustomTabContent({
     <TabsContent
       value={value}
       className={cn(
-        "rounded border overflow-clip mt-3 overflow-y-auto no-scrollbar html-code mb-6]",
+        "rounded border overflow-clip mt-3 overflow-y-auto no-scrollbar html-code",
         className
       )}
     >
@@ -101,7 +95,13 @@ function CustomTabContent({
   );
 }
 
-const PreviewAndCode = ({ jsxCode }: { jsxCode: string }) => {
+const PreviewAndCodeComponents = ({
+  html,
+  jsx,
+}: {
+  html: string;
+  jsx: string;
+}) => {
   const [currentTab, setCurrentTab] = useState("react");
 
   return (
@@ -109,27 +109,54 @@ const PreviewAndCode = ({ jsxCode }: { jsxCode: string }) => {
       defaultValue={currentTab}
       onValueChange={(value) => setCurrentTab(value)}
     >
-      <TabsList className="border-b rounded-none h-fit bg-transparent w-full items-start justify-between p-0">
-        <div className="space-x-4">
-          <CustomTrigger value="preview" text="Preview" />
-          <CustomTrigger value="react" text="React Email" />
-          <CustomTrigger value="html" text="HTML" />
+      <TabsList className="rounded-none h-fit bg-transparent w-full border-y items-start justify-between px-12 py-0">
+        <div className="border-x w-full">
+          <div className="py-2 pl-2">
+            <CustomTrigger value="preview" text="Preview" />
+            <CustomTrigger value="react" text="React Email" />
+            <CustomTrigger value="html" text="HTML" />
+          </div>
         </div>
         {currentTab === "preview" && null}
-        {currentTab === "react" && <CopyCodeButton code={jsxCode} successfulToastMessage="React Email Template Copied." />}
-        {currentTab === "html" && <CopyCodeButton code={html} successfulToastMessage="Rendered HTML Copied to Clipboard." />}
+        {currentTab === "react" && (
+          <CopyCodeButton
+            code={jsx}
+            successfulToastMessage="React Email Template Copied."
+          />
+        )}
+        {currentTab === "html" && (
+          <CopyCodeButton
+            code={html}
+            successfulToastMessage="Rendered HTML Copied to Clipboard."
+          />
+        )}
       </TabsList>
-      <CustomTabContent value="preview">
-        <iframe srcDoc={html} className="w-full h-full"></iframe>
+      <CustomTabContent
+        value="preview"
+        className="mt-0 border-none border-b-[1px] rounded-none px-12"
+      >
+        <div className="border-x">
+          <iframe srcDoc={html} className="w-full h-full"></iframe>
+        </div>
       </CustomTabContent>
-      <CustomTabContent value="react">
-        <CodeBlock language="typescript" code={jsxCode} />
+      <CustomTabContent
+        value="react"
+        className="mt-0 border-none border-b-[1px] rounded-none px-12"
+      >
+        <div className="border-x">
+          <CodeBlock language="typescript" code={jsx} />
+        </div>
       </CustomTabContent>
-      <CustomTabContent value="html">
-        <CodeBlock language="html" code={html} />
+      <CustomTabContent
+        value="html"
+        className="mt-0 border-none border-b-[1px] rounded-none px-12"
+      >
+        <div className="border-x">
+          <CodeBlock language="html" code={html} />
+        </div>
       </CustomTabContent>
     </Tabs>
   );
 };
 
-export default PreviewAndCode;
+export default PreviewAndCodeComponents;

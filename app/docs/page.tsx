@@ -1,7 +1,7 @@
 import React from "react";
-import CommonMarkdown from "./_components/common-markdown";
-import Breadcrumb from "./_components/breadcrumb";
 import { APP } from "@/lib/config";
+import Breadcrumb from "@/components/breadcrumb";
+import CommonMarkdown from "@/components/mdx-component";
 
 const content = `
 # Introduction
@@ -31,10 +31,10 @@ Whether you’re a developer, startup founder, or marketer, this collection will
 
 const page = () => {
   return (
-    <>
+    <div className="px-12">
       <Breadcrumb items={["Docs", "Introduction"]} />
       <CommonMarkdown>{content}</CommonMarkdown>
-    </>
+    </div>
   );
 };
 

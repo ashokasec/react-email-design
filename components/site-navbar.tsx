@@ -1,7 +1,7 @@
 import { APP } from "@/lib/config";
 import { geistSans } from "@/lib/fonts";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 
 export function Navbar() {
   return (

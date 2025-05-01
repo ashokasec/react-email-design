@@ -1,4 +1,4 @@
-import { Footer } from "@/components/app/footer";
+import { Footer } from "@/components/site-footer";
 import { Button } from "@/components/ui/button";
 import { geistSans } from "@/lib/fonts";
 import { ChevronRight } from "lucide-react";
