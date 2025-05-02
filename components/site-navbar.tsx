@@ -6,18 +6,18 @@ import { Button } from "./ui/button";
 export function Navbar() {
   return (
     <div className="border-b sticky top-0 w-full">
-      <header className="h-[calc(4rem-1px)] flex items-center justify-between max-w-screen-xl mx-auto border-x px-6 leading-none bg-white z-[100] relative">
+      <header className="h-[calc(4rem-1px)] flex items-center justify-between max-w-screen-xl mx-auto border-x pl-4 pr-6 leading-none bg-white z-[100] relative">
         <div className="flex space-x-10">
           <div
             style={geistSans.style}
-            className="text-[15px] font-semibold leading-none pt-[2px] text-blue-600"
+            className="text-[15px] font-semibold leading-none pt-[2px] text-blue-600 flex items-center"
           >
-            <Link href="/">{APP.name} </Link>
+            <Link href="/" className="flex items-center space-x-1"><img src="/logo/app-logo.png" className="size-6" /><span>{APP.name}</span></Link>
             <span className="bg-blue-100 rounded-md text-xs leading-none px-1.5 py-0.5 ml-1 text-blue-600">
               WIP
             </span>
           </div>
-          <nav>
+          <nav className="grid place-items-center">
             <ul
               className="flex items-center text-sm space-x-3 font-medium text-neutral-500"
               style={geistSans.style}

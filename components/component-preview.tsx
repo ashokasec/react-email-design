@@ -31,12 +31,7 @@ function CopyCodeButton({
     }
   };
   return (
-    <Button
-      size="icon"
-      variant="outline"
-      onClick={handleCopy}
-      className={className}
-    >
+    <Button size="icon" variant="ghost" onClick={handleCopy} className={className}>
       {copied ? <Check /> : <Copy />}
     </Button>
   );
@@ -110,26 +105,26 @@ const PreviewAndCodeComponents = ({
       onValueChange={(value) => setCurrentTab(value)}
     >
       <TabsList className="rounded-none h-fit bg-transparent w-full border-y items-start justify-between px-12 py-0">
-        <div className="border-x w-full">
-          <div className="py-2 pl-2">
+        <div className="border-x w-full flex items-center justify-between pl-2 pr-1.5">
+          <div className="py-2">
             <CustomTrigger value="preview" text="Preview" />
             <CustomTrigger value="react" text="React Email" />
             <CustomTrigger value="html" text="HTML" />
           </div>
+          {currentTab === "preview" && null}
+          {currentTab === "react" && (
+            <CopyCodeButton
+              code={jsx}
+              successfulToastMessage="React Email Template Copied."
+            />
+          )}
+          {currentTab === "html" && (
+            <CopyCodeButton
+              code={html}
+              successfulToastMessage="Rendered HTML Copied to Clipboard."
+            />
+          )}
         </div>
-        {currentTab === "preview" && null}
-        {currentTab === "react" && (
-          <CopyCodeButton
-            code={jsx}
-            successfulToastMessage="React Email Template Copied."
-          />
-        )}
-        {currentTab === "html" && (
-          <CopyCodeButton
-            code={html}
-            successfulToastMessage="Rendered HTML Copied to Clipboard."
-          />
-        )}
       </TabsList>
       <CustomTabContent
         value="preview"

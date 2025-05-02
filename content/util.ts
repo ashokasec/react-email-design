@@ -33,12 +33,16 @@ export function getFileContent({ dir, filename }: { dir: string; filename: strin
 export function getAllComponents() {
     const directories = getAllDirectories({ dir: COMPONENTS_DIR })
     const components = directories.map((elem) => {
-        const filePath = path.join(COMPONENTS_DIR, elem, "index.mdx");
+        const filePath = path.join(COMPONENTS_DIR, elem, "meta.mdx");
         const content = readFileSync(filePath, 'utf-8');
         const { data } = matter(content);
         return {
             title: data.title as string,
-            slug: elem
+            description: data.description as string,
+            slug: data.slug as string,
+            ogImage: data.ogImage as string,
+            ogTitle: data.ogTitle as string,
+            ogDescription: data.ogDescription as string
         }
     })
     return components

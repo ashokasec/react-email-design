@@ -45,7 +45,7 @@ const DocSidebar = () => {
         <Link
           href="https://x.com/ashokasec"
           target="_blank"
-          className="underline text-blue-600"
+          className="underline underline-offset-4 text-blue-600 font-medium"
         >
           @ashokasec
         </Link>

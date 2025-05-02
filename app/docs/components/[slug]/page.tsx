@@ -1,16 +1,63 @@
 import React from "react";
-import { COMPONENTS_DIR, getAllComponents, getAllFiles, getFileContent } from "@/content/util";
+import {
+  COMPONENTS_DIR,
+  getAllComponents,
+  getAllFiles,
+  getFileContent,
+} from "@/content/util";
 import path from "node:path";
 import { render } from "@react-email/render";
 import Breadcrumb from "@/components/breadcrumb";
 import { Heading1 } from "@/components/mdx-component";
 import PreviewAndCodeComponents from "@/components/component-preview";
+import { Metadata } from "next";
+import { absoluteUrl } from "@/lib/utils";
 
 export const dynamic = "force-static";
 
 export async function generateStaticParams() {
   const components = getAllComponents();
   return components.map((c) => ({ slug: c.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const components = getAllComponents();
+  const component = components.find((c) => c.slug === slug);
+
+  if (!component) {
+    return {};
+  }
+
+  return {
+    title: `${component.title} | React Email Design`,
+    description: component.description,
+    openGraph: {
+      title: `${component.ogTitle} | React Email Design`,
+      description: component.ogDescription,
+      type: "article",
+      url: absoluteUrl(component.slug),
+      images: [
+        {
+          url: component.ogImage,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: component.title,
+      description: component.description,
+      images: [component.ogImage],
+      creator: "@ashokasec",
+    },
+  };
 }
 
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
