@@ -23,3 +23,17 @@ Build emails that look great and just work.
 - 💌 Powered by React.email  
 - ⚙️ Fully customizable and extensible  
 - 🌐 100% free and open-source
+
+## Contributing
+
+Want to help improve ReactEmail.Design? We welcome contributions of all sizes!
+
+- **Fix a bug** or **add a new component** - check out our [contributing guide](CONTRIBUTING.md)
+- **Star the repo** to show your support
+- **Share the project** with your network
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions on getting started as a contributor.
+
+## License
+
+[MIT](LICENSE.md) © ReactEmail.Design

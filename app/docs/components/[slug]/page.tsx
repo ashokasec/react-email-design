@@ -52,7 +52,7 @@ export async function generateMetadata({
         },
         twitter: {
             card: "summary_large_image",
-            title: component.title,
+            title: `${component.title} | React Email Design`,
             description: component.description,
             images: [component.ogImage],
             creator: "@ashokasec",
