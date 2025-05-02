@@ -32,7 +32,7 @@ const DocSidebar = () => {
                     <SidebarGroup>
                         <SidebarGroupTitle>Components</SidebarGroupTitle>
                         <ul>
-                            {components.map(({ title, slug }, index) => (
+                            {components.map(({ title, slug }) => (
                                 <SidebarListItem
                                     href={`/docs/components/${slug}`}
                                     key={slug}

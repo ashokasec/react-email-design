@@ -10,6 +10,20 @@ const page = () => {
         <>
             <main style={geistSans.style}>
                 <div className="max-w-screen-xl mx-auto py-36">
+                    <div className="mb-4">
+                        <figure className="size-12 mx-auto border rounded-lg overflow-hidden relative flex items-center justify-center">
+                            <img
+                                src="/logo/app-logo.png"
+                                alt="React Email Design Logo"
+                                className="size-9 absolute blur-sm opacity-30"
+                            />
+                            <img
+                                src="/logo/app-logo.png"
+                                alt="React Email Design Logo"
+                                className="size-9"
+                            />
+                        </figure>
+                    </div>
                     <h1
                         className="font-bold text-6xl max-w-2xl mx-auto text-center text-neutral-800 leading-[1.1]"
                         style={geistSans.style}
