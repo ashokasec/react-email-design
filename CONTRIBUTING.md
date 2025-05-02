@@ -6,7 +6,7 @@ Thank you for helping improve reactemail.design! This guide will help you get st
 
 ```bash
 # 1. Fork and clone the repository
-git clone https://github.com/your-username/reactemail.design
+git clone https://github.com/your-username/react-email-design
 cd reactemail.design
 
 # 2. Install dependencies
