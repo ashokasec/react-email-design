@@ -1,3 +1,3 @@
 export const APP = {
-    name: "React Email Design"
-}
+    name: "React Email Design",
+};
