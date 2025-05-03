@@ -30,12 +30,12 @@ Whether you’re a developer, startup founder, or marketer, this collection will
 `;
 
 const page = () => {
-    return (
-        <div className="px-12">
-            <Breadcrumb items={["Docs", "Introduction"]} />
-            <CommonMarkdown>{content}</CommonMarkdown>
-        </div>
-    );
+  return (
+    <div className="px-12">
+      <Breadcrumb items={["Docs", "Introduction"]} />
+      <CommonMarkdown>{content}</CommonMarkdown>
+    </div>
+  );
 };
 
 export default page;
