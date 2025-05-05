@@ -25,21 +25,19 @@ const page = () => {
             </figure>
           </div>
           <h1
-            className="font-bold text-6xl max-w-2xl mx-auto text-center text-neutral-800 leading-[1.1]"
+            className="font-bold text-[3.25rem] max-w-2xl mx-auto text-center text-neutral-800 leading-[1.1]"
             style={geistSans.style}
           >
             {/* <TextGradient>React Email Templates</TextGradient> for {" "}
             <TextGradient from="from-sky-400" to="to-blue-500">Busy Developers</TextGradient> */}
-            React Email Templates for Busy Developers
+            React Email Components for Busy Developers
           </h1>
           <p
             className="max-w-2xl mx-auto text-center text-[17px] text-neutral-700 mt-6 landing-description"
             style={geistSans.style}
           >
-            50+ handcrafted email templates built with{" "}
-            <strong>React.email</strong>, <strong>Tailwind CSS</strong>, and{" "}
-            <strong>Typescript</strong> — perfect for developers shipping
-            onboarding, transactional, and marketing emails fast.
+            We’re building the internet’s best library of React.email components
+            and templates - clean, responsive, and battle-tested.
           </p>
           <div className="space-x-2 mx-auto w-fit mt-10">
             <Button size="lg" className="text-[15px] py-3 h-fit" asChild>
@@ -48,11 +46,12 @@ const page = () => {
               </Link>
             </Button>
             <Button
+              disabled
               size="lg"
               className="text-[15px] py-3 h-fit"
               variant="outline"
             >
-              Browse Templates <ChevronRight className="size-4" />
+              Browse Templates (Soon) <ChevronRight className="size-4" />
             </Button>
           </div>
           <ul className="flex items-center w-fit mx-auto mt-8 space-x-2 saturate-150">

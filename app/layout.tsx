@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navbar } from "@/components/site-navbar";
 import { Toaster } from "react-hot-toast";
 import { geistSans } from "@/lib/fonts";
+import { SiteBanner } from "@/components/site-banner";
 
 export const metadata: Metadata = {
   title: "React Email Templates | Beautiful, Responsive & Production-Ready",
@@ -50,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} antialiased`}>
+        <SiteBanner />
         <Navbar />
         {children}
         <Toaster
